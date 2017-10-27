@@ -1,0 +1,6 @@
+#IFNDEF MAIN
+#DEFINE MAIN
+
+int main();
+
+#ENDIF
