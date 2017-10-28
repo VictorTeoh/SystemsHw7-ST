@@ -1,9 +1,10 @@
 #IFNDEF RAND
 #DEFINE
 
-void populate( char *, int );
-void writeFile( char *, int );
-void readFile( char *, int );
+int getRandInt();
+void populateArray( char *, int );
+void writeToFile( char *);
+void readFromFile( char *);
 void printArray( char * );
 
 #ENDIF
