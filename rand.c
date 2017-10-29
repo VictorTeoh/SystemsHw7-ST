@@ -18,6 +18,10 @@
 int getRandInt() {
   int rand;
   int randFile = open( "/dev/random", O_RDONLY);
+  if (randFile == -1){
+    printf("no /dev/random file\n");
+    exit(0);
+  }
   read( randFile, &rand, sizeof(rand));
   close( randFile);
   return rand;
