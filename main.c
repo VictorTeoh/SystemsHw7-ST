@@ -6,14 +6,8 @@
 #include "rand.h"
 #include "main.h"
 
-#include <stdlib.h>
 #include <stdio.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <errno.h>
-#include <string.h>
-#include <time.h>
+#include <stdlib.h>
 
 int main(){
 
