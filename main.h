@@ -1,6 +1,6 @@
-#IFNDEF MAIN
-#DEFINE MAIN
+#ifndef MAIN
+#define MAIN
 
 int main();
 
-#ENDIF
+#endif

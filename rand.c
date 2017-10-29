@@ -3,6 +3,8 @@
   HW07
   2017-10-27*/
 
+#include "rand.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
@@ -12,6 +14,7 @@
 #include <string.h>
 #include <time.h>
 
+//returns a random integer utilizing /dev/random
 int getRandInt() {
   int rand;
   int randFile = open( "/dev/random", O_RDONLY);
@@ -20,28 +23,36 @@ int getRandInt() {
   return rand;
 }
 
-void populateArray( char *array, int size){
+//populates an array with random ints
+//takes in an array pointer and the size in bytes of the array
+void populateArray( int *array, int size){
   int i = 0;
-  for (; i < sizeof(array); i++){
+  for (; i < size/sizeof(int); i++){
     array[i] = getRandInt();
   }
 }
 
-void writeToFile( char *contents, char *name){
+//writes an array to a file
+//takes in an array pointer, the name of the file, and the size in bytes of the array
+void writeToFile( int *contents, char *name, int size){
   int numbersFile = open(name, O_CREAT | O_RDWR, 0644);
-  write(numbersFile, contents, sizeof(contents));
+  write(numbersFile, contents, size);
   close(numbersFile);
 }
   
-void readFromFile( char *copy, char *name){
-  int numbersFile = open(name,  O_RDONLY);
-  read(numbersFile, copy, sizeof(copy));
+//reads the file into an array
+//takes in an array pointer, the name of the file, and the size in bytes of the array
+void readFromFile( int *copy, char *name, int size){
+  int numbersFile = open(name, O_RDONLY);
+  read(numbersFile, copy, size);
   close(numbersFile);
 }
 
-void printArray( char *array){
+//prints out the contents of an array
+//takes in an array pointer and the size in bytes of the array
+void printArray( int *array, int size){
   int i = 0;
-  for (; i < sizeof(array); i++){
+  for (; i < size/sizeof(int); i++){
     printf("random %d: %d\n", i, array[i]);
   }
 }

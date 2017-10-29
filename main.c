@@ -3,6 +3,9 @@
   HW07
   2017-10-27*/
 
+#include "rand.h"
+#include "main.h"
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/stat.h>
@@ -20,19 +23,19 @@ int main(){
   int copy[10];
 
   printf("\npopulating orig[] with 10 random numbers\n\n"); 
-  populateArray(orig);
+  populateArray(orig, sizeof(orig));
   
   printf("Printing out contents of orig[]\n");
-  printArray(orig);
+  printArray(orig, sizeof(orig));
 
   printf("\nWriting numbers to File...\n\n");
-  writeToFile( orig, "numbers");
-  
+  writeToFile( orig, "numbers", sizeof(orig));
+
   printf("Reading numbers from File...\n\n");
-  readFromFile( copy, "numbers");
+  readFromFile( copy, "numbers", sizeof(copy));
   
   printf("Printing out contents of copy[]\n");
-  printArray(copy);
+  printArray(copy, sizeof(copy));
 
   return 0;
 }

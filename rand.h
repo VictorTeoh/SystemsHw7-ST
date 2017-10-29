@@ -1,10 +1,10 @@
-#IFNDEF RAND
-#DEFINE
+#ifndef RAND
+#define RAND
 
 int getRandInt();
-void populateArray( char *, int );
-void writeToFile( char *);
-void readFromFile( char *);
-void printArray( char * );
+void populateArray( int *, int);
+void writeToFile( int *, char *, int);
+void readFromFile( int *, char *, int);
+void printArray( int *, int);
 
-#ENDIF
+#endif
